@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecarise Energy &amp; Compliance — Certified Energy, Electrical &amp; Sustainability Audits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151A;
+    --panel:#191D23;
+    --panel-alt:#1F242B;
+    --line: rgba(237,239,242,0.08);
+    --line-strong: rgba(237,239,242,0.16);
+    --text:#EDEFF2;
+    --muted:#8A93A0;
+    --amber:#FFB020;
+    --amber-dim: rgba(255,176,32,0.14);
+    --teal:#33D6C0;
+    --teal-dim: rgba(51,214,192,0.14);
+    --red:#FF6B5C;
+    --radius: 2px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/48px 48px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/48px 48px,
+      var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--amber); display:flex; align-items:center; gap:10px; margin-bottom:16px;
+  }
+  .eyebrow::before{content:""; width:18px; height:1px; background:var(--amber); display:inline-block;}
+  h1,h2,h3,h4{font-family:var(--display); font-weight:600; letter-spacing:-0.01em; color:var(--text);}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:13px;
+    letter-spacing:0.06em; text-transform:uppercase; padding:14px 22px; border-radius:var(--radius);
+    border:1px solid var(--line-strong); cursor:pointer; transition:all .18s ease; white-space:nowrap;
+  }
+  .btn-primary{background:var(--amber); color:#14171A; border-color:var(--amber);}
+  .btn-primary:hover{background:#ffc350; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--text);}
+  .btn-ghost:hover{border-color:var(--text); background:rgba(255,255,255,0.03);}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(18,21,26,0.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:19px;}
+  .logo .mark{
+    width:26px; height:26px; border-radius:50%; border:1.5px solid var(--amber); position:relative; flex-shrink:0;
+  }
+  .logo .mark::before, .logo .mark::after{content:""; position:absolute; background:var(--amber);}
+  .logo .mark::before{ top:50%; left:2px; right:2px; height:1px; transform:translateY(-50%);}
+  .logo .mark::after{ left:50%; top:2px; bottom:2px; width:1px; transform:translateX(-50%);}
+  .navlinks{display:flex; align-items:center; gap:34px; font-size:14px; color:var(--muted);}
+  .navlinks a:hover{color:var(--text);}
+  .nav-cta{display:flex; align-items:center; gap:16px;}
+  .navlinks-desktop{display:flex;}
+  .burger{display:none; background:none; border:none; color:var(--text); font-size:22px; cursor:pointer;}
+  @media (max-width:920px){
+    .navlinks-desktop{display:none;}
+    .nav-cta .btn-ghost{display:none;}
+    .burger{display:block;}
+  }
+  .mobile-menu{display:none; flex-direction:column; gap:2px; border-top:1px solid var(--line); background:var(--panel);}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{padding:16px 28px; border-bottom:1px solid var(--line); font-size:14px; color:var(--muted);}
+
+  /* HERO */
+  .hero{padding:96px 0 60px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(34px,4.6vw,58px); line-height:1.08; margin-bottom:22px;}
+  .hero h1 span{color:var(--amber);}
+  .hero p.lead{color:var(--muted); font-size:17px; max-width:520px; margin-bottom:32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .hero-tags{display:flex; gap:10px; flex-wrap:wrap;}
+  .tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.04em; color:var(--muted);
+    border:1px solid var(--line-strong); padding:6px 12px; border-radius:20px;
+  }
+
+  /* Readout signature panel */
+  .readout{
+    background:var(--panel); border:1px solid var(--line-strong); border-radius:6px; padding:22px 22px 18px;
+    position:relative;
+  }
+  .readout-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .readout-title{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;}
+  .dot-live{display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; color:var(--teal);}
+  .dot-live::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+  .wave-box{width:100%; height:120px; margin-bottom:16px;}
+  .wave-box svg{width:100%; height:100%; display:block;}
+  .wave-path{fill:none; stroke:var(--amber); stroke-width:1.6; stroke-linecap:round;}
+  .wave-path.secondary{stroke:var(--teal); opacity:0.55;}
+  .readout-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; border-top:1px solid var(--line); padding-top:16px;}
+  .readout-stat .num{font-family:var(--display); font-weight:700; font-size:26px; color:var(--text);}
+  .readout-stat .num .u{color:var(--amber);}
+  .readout-stat .lbl{font-family:var(--mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:2px;}
+
+  section{padding:88px 0; border-bottom:1px solid var(--line);}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(26px,3vw,38px); line-height:1.15; margin-bottom:14px;}
+  .section-head p{color:var(--muted); font-size:16px;}
+
+  /* SERVICES */
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:900px){ .service-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .service-grid{grid-template-columns:1fr;} }
+  .service-card{background:var(--panel); padding:30px 26px; transition:background .18s ease;}
+  .service-card:hover{background:var(--panel-alt);}
+  .service-code{font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:0.08em; margin-bottom:18px; display:block;}
+  .service-card h3{font-size:18px; margin-bottom:10px; line-height:1.3;}
+  .service-card p{color:var(--muted); font-size:14px; margin-bottom:16px;}
+  .service-link{font-family:var(--mono); font-size:12px; color:var(--text); letter-spacing:0.04em; display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid var(--line-strong); padding-bottom:2px;}
+  .service-link:hover{color:var(--amber); border-color:var(--amber);}
+
+  /* PROCESS */
+  .process-list{display:flex; flex-direction:column;}
+  .process-item{display:grid; grid-template-columns:90px 1fr; gap:28px; padding:28px 0; border-top:1px solid var(--line);}
+  .process-item:last-child{border-bottom:1px solid var(--line);}
+  .process-num{font-family:var(--mono); font-size:13px; color:var(--amber); padding-top:4px;}
+  .process-body h3{font-size:19px; margin-bottom:8px;}
+  .process-body p{color:var(--muted); font-size:15px; max-width:640px;}
+  .process-meta{font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:10px; letter-spacing:0.04em;}
+
+  /* INDUSTRIES */
+  .chip-grid{display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{
+    border:1px solid var(--line-strong); padding:12px 18px; border-radius:4px; font-size:14px; color:var(--text);
+    background:var(--panel);
+  }
+
+  /* WHY / STATS */
+  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  @media (max-width:900px){ .why-grid{grid-template-columns:1fr;} }
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:36px;}
+  .stat-cell{background:var(--panel); padding:26px 20px;}
+  .stat-cell .num{font-family:var(--display); font-size:32px; font-weight:700; color:var(--amber);}
+  .stat-cell .lbl{font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase; margin-top:6px;}
+  .why-copy p{color:var(--muted); margin-bottom:16px; font-size:16px;}
+
+  /* TEAM */
+  .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:760px){ .team-grid{grid-template-columns:1fr;} }
+  .team-card{border:1px solid var(--line); padding:26px; background:var(--panel);}
+  .team-avatar{width:52px; height:52px; border-radius:50%; border:1.5px solid var(--amber); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:700; color:var(--amber); margin-bottom:18px;}
+  .team-card h3{font-size:17px; margin-bottom:4px;}
+  .team-role{font-family:var(--mono); font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px;}
+  .team-card p{color:var(--muted); font-size:14px;}
+
+  /* FAQ */
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 0; cursor:pointer;
+    background:none; border:none; width:100%; text-align:left; color:var(--text); font-family:var(--display); font-size:17px; font-weight:500;
+  }
+  .faq-q .icon{font-family:var(--mono); color:var(--amber); font-size:18px; flex-shrink:0; transition:transform .2s ease;}
+  .faq-item.open .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{color:var(--muted); padding-bottom:22px; font-size:15px; max-width:680px;}
+
+  /* CONTACT CTA */
+  .cta-section{padding:90px 0; border-bottom:1px solid var(--line);}
+  .cta-box{
+    border:1px solid var(--line-strong); background:linear-gradient(135deg, var(--panel), var(--panel-alt));
+    padding:56px; border-radius:6px; display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap;
+  }
+  .cta-box h2{font-size:clamp(24px,3vw,34px); max-width:480px; margin-bottom:10px;}
+  .cta-box p{color:var(--muted); max-width:460px;}
+  .cta-actions{display:flex; gap:14px; flex-wrap:wrap;}
+
+  footer{padding:60px 0 30px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px;}
+  @media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  .footer-grid h4{font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:18px;}
+  .footer-grid a, .footer-grid p{display:block; color:var(--muted); font-size:14px; margin-bottom:10px;}
+  .footer-grid a:hover{color:var(--amber);}
+  .footer-brand p{color:var(--muted); font-size:14px; max-width:280px; margin-top:14px;}
+  .footer-bottom{
+    border-top:1px solid var(--line); padding-top:24px; display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:12px; font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .footer-social{display:flex; gap:16px;}
+  .footer-social a{color:var(--muted);}
+  .footer-social a:hover{color:var(--amber);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo"><span class="mark"></span>MECARISE</a>
+      <div class="navlinks navlinks-desktop">
+        <a href="#services">Services</a>
+        <a href="#process">Approach</a>
+        <a href="#industries">Industries</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#contact" class="btn btn-primary">Book an Audit</a>
+        <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#process">Approach</a>
+    <a href="#industries">Industries</a>
+    <a href="#team">Team</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line);">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">BEE-Empanelled Auditors · Est. 2017</div>
+        <h1>We measure what your <span>energy system</span> won't tell you on its own.</h1>
+        <p class="lead">Mecarise runs certified energy, electrical, water and sustainability audits for industrial and commercial facilities — turning meter data, thermal scans and load studies into a fixed, funded plan to cut cost and risk.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Schedule a Site Walk</a>
+          <a href="#services" class="btn btn-ghost">View Audit Catalog ↓</a>
+        </div>
+        <div class="hero-tags">
+          <span class="tag">ENERGY AUDIT</span>
+          <span class="tag">ELECTRICAL SAFETY</span>
+          <span class="tag">POWER QUALITY</span>
+          <span class="tag">WATER &amp; CARBON</span>
+          <span class="tag">MEP &amp; COMMISSIONING</span>
+        </div>
+      </div>
+
+      <div class="readout">
+        <div class="readout-top">
+          <span class="readout-title">Live Facility Readout</span>
+          <span class="dot-live">STREAMING</span>
+        </div>
+        <div class="wave-box">
+          <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+            <path class="wave-path secondary" id="wavePathB" d="M0,80 Q40,60 80,80 T160,80 T240,80 T320,80 T400,80"/>
+            <path class="wave-path" id="wavePathA" d="M0,60 Q40,20 80,60 T160,60 T240,60 T320,60 T400,60"/>
+          </svg>
+        </div>
+        <div class="readout-stats">
+          <div class="readout-stat">
+            <div class="num" id="statProjects">0</div>
+            <div class="lbl">Audits Delivered</div>
+          </div>
+          <div class="readout-stat">
+            <div class="num" id="statSavings">0<span class="u">%</span></div>
+            <div class="lbl">Avg. Energy Savings</div>
+          </div>
+          <div class="readout-stat">
+            <div class="num" id="statSupport">24<span class="u">/7</span></div>
+            <div class="lbl">Facility Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Audit Catalog</div>
+        <h2>Twelve audit disciplines, one engineering team.</h2>
+        <p>Each engagement is scoped, coded and reported against a fixed methodology — so findings are comparable across sites, years and auditors.</p>
+      </div>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 01</span>
+          <h3>Energy Audit &amp; Efficiency</h3>
+          <p>Load studies, thermal process review and electrical system checks that surface loss points across production and utilities.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 02</span>
+          <h3>Electrical Safety &amp; Compliance</h3>
+          <p>Inspection, testing and risk-rating of switchgear, earthing and protection systems against statutory standards.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 03</span>
+          <h3>Power Quality Analysis</h3>
+          <p>Harmonic, voltage and load-flow measurement to isolate the source of nuisance trips, heating and equipment wear.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 04</span>
+          <h3>Water Audit &amp; Conservation</h3>
+          <p>Usage mapping and loss detection across intake, process and discharge to cut consumption and effluent load.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 05</span>
+          <h3>Carbon &amp; GHG Assessment</h3>
+          <p>Scope 1–3 emissions inventory built for ESG disclosure, net-zero roadmaps and buyer sustainability questionnaires.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 06</span>
+          <h3>Fire Safety &amp; Risk Control</h3>
+          <p>System inspection and emergency-readiness review measured against fire code and insurer requirements.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 07</span>
+          <h3>Infrared Thermography</h3>
+          <p>Thermal imaging under load to catch loose connections, overloaded circuits and bearing faults before failure.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 08</span>
+          <h3>MEP Audit</h3>
+          <p>Cross-discipline review of mechanical, electrical and plumbing systems to cut waste and extend asset life.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 09</span>
+          <h3>Testing &amp; Commissioning</h3>
+          <p>Calibration and performance validation of electrical and HVAC systems before or after handover.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 10</span>
+          <h3>Power System Studies</h3>
+          <p>Load flow, relay coordination and short-circuit studies for stability across expanding electrical networks.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 11</span>
+          <h3>Renewable Energy Advisory</h3>
+          <p>Feasibility and sizing for solar, wind and hybrid systems, modelled against your real load profile.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-code">AUDIT · 12</span>
+          <h3>Special Engineering Studies</h3>
+          <p>Custom technical investigations for non-standard plant issues that don't fit a template scope.</p>
+          <a href="#contact" class="service-link">Scope this audit →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How an Engagement Runs</div>
+        <h2>A fixed sequence, not a black box.</h2>
+        <p>Every audit follows the same four stages regardless of discipline, so you always know what's next and what it depends on.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div class="process-body">
+            <h3>Document &amp; data intake</h3>
+            <p>We request twelve months of utility bills, single-line diagrams, load lists and maintenance records ahead of the visit, so site time is spent measuring, not searching for paperwork.</p>
+            <div class="process-meta">TYPICAL DURATION · 3–5 DAYS</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div class="process-body">
+            <h3>Site measurement</h3>
+            <p>Certified auditors run load logging, thermal scans and power quality capture on live equipment, cross-checked against your operating schedule.</p>
+            <div class="process-meta">TYPICAL DURATION · 1–10 DAYS, BY FACILITY SIZE</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div class="process-body">
+            <h3>Analysis &amp; findings review</h3>
+            <p>Data is modelled against baseline consumption to rank findings by payback period and safety risk before anything is finalised.</p>
+            <div class="process-meta">TYPICAL DURATION · 5–7 DAYS</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div class="process-body">
+            <h3>Report &amp; implementation support</h3>
+            <p>You receive a prioritised action list with cost, savings and compliance impact for each item, plus support through implementation and verification.</p>
+            <div class="process-meta">DELIVERABLE · SIGNED AUDIT REPORT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Where We Work</div>
+        <h2>Built for facilities that can't afford downtime.</h2>
+        <p>From single-shift plants to 24/7 process industries, across metro and regional India.</p>
+      </div>
+      <div class="chip-grid">
+        <span class="chip">Manufacturing &amp; Process Plants</span>
+        <span class="chip">Industrial Estates</span>
+        <span class="chip">IT Parks &amp; Data Centres</span>
+        <span class="chip">Commercial Buildings</span>
+        <span class="chip">Hospitals</span>
+        <span class="chip">Educational Institutions</span>
+        <span class="chip">Residential Complexes</span>
+        <span class="chip">Logistics &amp; Warehousing</span>
+        <span class="chip">Pharma &amp; Chemical</span>
+        <span class="chip">Shopping Malls</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="wrap why-grid">
+      <div class="why-copy">
+        <div class="eyebrow">Why Mecarise</div>
+        <h2 style="margin-bottom:16px;">Findings you can put in front of a CFO.</h2>
+        <p>Every recommendation in a Mecarise report carries an estimated cost, payback period and confidence level — so energy-saving proposals compete on the same terms as any other capital request.</p>
+        <p>Our auditors hold BEE energy auditor certification and electrical engineering licenses, and every measurement is logged against calibrated instruments with traceable records.</p>
+      </div>
+      <div>
+        <div class="stat-row">
+          <div class="stat-cell"><div class="num">2,000+</div><div class="lbl">Audits Completed</div></div>
+          <div class="stat-cell"><div class="num">97%</div><div class="lbl">Client Renewal Rate</div></div>
+          <div class="stat-cell"><div class="num">7+</div><div class="lbl">Years in Operation</div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-cell"><div class="num">10</div><div class="lbl">Cities Covered in India</div></div>
+          <div class="stat-cell"><div class="num">3</div><div class="lbl">International Regions</div></div>
+          <div class="stat-cell"><div class="num">24/7</div><div class="lbl">Facility Support Line</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Leadership</div>
+        <h2>Engineers first, consultants second.</h2>
+        <p>The team behind every report has spent years on plant floors before writing recommendations for one.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">A</div>
+          <h3>Ananya Rao</h3>
+          <div class="team-role">Managing Director</div>
+          <p>Fifteen years leading industrial energy programmes across manufacturing and process industries in Western India.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">V</div>
+          <h3>Vikram Sethi</h3>
+          <div class="team-role">Head of Electrical Engineering</div>
+          <p>Specialist in power quality, protection coordination and electrical safety compliance for high-load facilities.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <h3>Sana Fernandes</h3>
+          <div class="team-role">Head of Sustainability</div>
+          <p>Leads carbon accounting and ESG reporting engagements for clients preparing for export and investor disclosure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Frequently Asked</div>
+        <h2>Before you call, the short answers.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is a facility energy audit? <span class="icon">+</span></button>
+          <div class="faq-a"><p>A structured engineering study of consumption across electrical systems, HVAC and process equipment, used to identify losses and rank efficiency opportunities by cost and payback.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What documents do you need before starting? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Twelve months of utility bills, single-line diagrams, equipment load lists, operating schedules and maintenance records — this lets us prepare before the site visit rather than discover scope on-site.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does an audit take? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Small facilities: one to two days on-site. Medium facilities: three to five days. Large industrial plants: one to two weeks, followed by analysis and reporting.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Who actually performs the audit? <span class="icon">+</span></button>
+          <div class="faq-a"><p>BEE-certified energy auditors and licensed electrical engineers with direct plant experience — not junior analysts working from a checklist.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you work outside India? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Yes. Audit methodology is applied consistently on select assignments across the Middle East, alongside our core coverage of Indian metro and industrial hubs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can an audit help with ESG reporting? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Yes. Carbon and energy audit findings feed directly into Scope 1–3 emissions inventories used for ESG disclosure and net-zero planning.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Get a scoped quote in one site visit.</h2>
+          <p>Tell us your facility type and connected load, and we'll come back with an audit scope and fixed fee — no generic packages.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:+911234567890" class="btn btn-primary">Call +91 12345 67890</a>
+          <a href="mailto:hello@mecarise-energy.example" class="btn btn-ghost">Email Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo"><span class="mark"></span>MECARISE</a>
+        <p>Certified energy, electrical and sustainability audits for industrial and commercial facilities across India and select international markets.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#team">Team</a>
+        <a href="#process">Approach</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">Energy &amp; Electrical Audits</a>
+        <a href="#services">Water &amp; Carbon Assessment</a>
+        <a href="#services">MEP &amp; Commissioning</a>
+        <a href="#services">Renewable Advisory</a>
+      </div>
+      <div>
+        <h4>Reach Us</h4>
+        <p>hello@mecarise-energy.example</p>
+        <p>+91 12345 67890</p>
+        <p>Navi Mumbai · Pune · Delhi NCR · Chennai</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mecarise Energy &amp; Compliance. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.textContent = open ? '✕' : '☰';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.textContent = '☰';
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Animated counters
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateCount(el, target, suffixEl, duration=1400){
+    if(reduceMotion){ el.textContent = target; return; }
+    let start = null;
+    function step(ts){
+      if(!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const val = Math.floor(progress * target);
+      el.textContent = val.toLocaleString();
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  }
+  const statProjects = document.getElementById('statProjects');
+  const statSavings = document.getElementById('statSavings');
+  let counted = false;
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !counted){
+        counted = true;
+        animateCount(statProjects, 2000);
+        const savingsSpan = statSavings;
+        let start = null;
+        const target = 23;
+        function stepS(ts){
+          if(reduceMotion){ savingsSpan.innerHTML = target + '<span class="u">%</span>'; return; }
+          if(!start) start = ts;
+          const progress = Math.min((ts-start)/1400,1);
+          const val = Math.floor(progress*target);
+          savingsSpan.innerHTML = val + '<span class="u">%</span>';
+          if(progress<1) requestAnimationFrame(stepS);
+        }
+        requestAnimationFrame(stepS);
+      }
+    });
+  }, {threshold:0.4});
+  heroObserver.observe(document.querySelector('.readout'));
+
+  // Waveform animation — gentle oscillation to suggest a live readout
+  const pathA = document.getElementById('wavePathA');
+  const pathB = document.getElementById('wavePathB');
+  let t = 0;
+  function animateWave(){
+    if(!reduceMotion){
+      t += 0.02;
+      const amp1 = 20 + Math.sin(t*0.7) * 6;
+      const amp2 = 10 + Math.cos(t*0.5) * 4;
+      pathA.setAttribute('d', `M0,60 Q40,${60-amp1} 80,60 T160,60 T240,60 T320,60 T400,60`);
+      pathB.setAttribute('d', `M0,80 Q40,${80-amp2} 80,80 T160,80 T240,80 T320,80 T400,80`);
+      requestAnimationFrame(animateWave);
+    }
+  }
+  animateWave();
+</script>
+
+</body>
+</html>
